@@ -1,0 +1,29 @@
+<h1>Projects search results</h1>
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th> 
+      <th>Project Manager</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |p| %>
+    <tr>  
+      <td><strong><%= p.Name__c %></strong></td>
+      <td><%= p.Description__c %></td>    
+      <td><%= p.Project_Manager__c %></td>
+    </tr>
+    <% end %>                  
+  </tbody>
+</table>
+
+<pre> 
+  <%= Project.attributes.to_yaml %>
+</pre>
+
+<h3>Search Projects</h3>
+<%= form_tag search_projects_path, :method => :get do %>
+  <%= text_field_tag 'qry', '', :placeholder => 'Enter search term...', :class => 'small' %>
+  <%= submit_tag "Search" %>
+<% end %>

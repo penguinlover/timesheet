@@ -1,0 +1,54 @@
+<h1 id="timesheet">Timesheet</h1>
+<p>USE</p>
+<p>Timesheet record the start and end time of tasks, or just the duration. It may contain a breakdown of tasks accomplished throughout the project or program. This informaiton may be used for payroll, client billing, and increasingly for project planning, estimation, tracking and managemnet.</p>
+<p>Timesheet can also used to compare planned costs versus actual costs, as well as measuring employee performance and identifying problematic tasks. This knowledge can drive corporate strategy as users stop performing or reassign unprofitable work.</p>
+<p>Have you ever seen timecards before? People usually use a 'time card' and 'punch in' by inserting their card into an automatic timestamp machine. Our goal is to use software to manage this activity.</p>
+<h2 id="overall-requirements">Overall Requirements</h2>
+<ol style="list-style-type: decimal">
+<li><p>Rails on Heroku</p></li>
+<li><p>Bootstrap &amp; Backbone.js</p></li>
+<li><p>Store the data in backend into the force.com data model [Piyush wants to have ability to run reports using salesforce reporting functionality]. So we will have to setup a DE org and define our data model there using Salesforce custom objects. We could use databasedotcom gem or use SFDC rest API directly whatever works better. Once we get it working with a DE org we should be able to point the app to another org that Piyush can create using partner portal for Testing/Production.</p></li>
+<li><p>We need to support login/user management on our own [we can use something like Janrain that can allow comity guys to login using their Google Apps account for comity]. If they are using comity gmail account it is ok to auto provision their user on our web app but otherwise someone needs to provision them before they can login to the web app [so that Piyush can have control over who can login and setup new employees].</p></li>
+</ol>
+<ul>
+<li>There are two ways to register(sign up) an user into the system</li>
+<li>A n user can only be created manually by Administrator, the user has the ability to create his/her own password.</li>
+<li><p>An user can register by authenticating him/her-self via google app oauth, this way this user does not need to create any password in the system, but a user record is automatically created according to google account information.</p></li>
+<li>There are two mechanisms to sign in a user</li>
+<li>User type in his/her email and password.</li>
+<li><p>User uses google app account to login using oauth strategy.</p></li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Also, we need to keep in mind data security by user role so that they can only see their own timesheets and not other people's timesheets etc. We will have to define this more once we have better data model.</li>
+</ol>
+<ul>
+<li>For new administrator will be able to go to admin page through http-basic-authentication, what's great about this is that the authentication is very elegant, the downside is that administrator has to close browser in order to kill the session.</li>
+</ul>
+<h2 id="how-rails-backbone.js-works">How Rails + Backbone.js works</h2>
+<p>Both Rails, Backbone.js follow MVC pattern, but there is some significent diferences</p>
+<p>Here is which matches which</p>
+<p>Rails - |Model|•| Controller |•| View | Backbone - |Model|•|Router • View|•|Template|</p>
+<p>Here is a high level request-response flow</p>
+<ul>
+<li>-Start-</li>
+<li>A request from a user comes in; the <strong>Rails router</strong> identifies what should handle the request, based on the URL</li>
+<li>The <strong>Rails controller</strong> action to handle the request is called; some initial processing may be performed</li>
+<li>The <strong>Rails view template</strong> rendered and returned to the user's browser</li>
+<li>The <strong>Rails view template</strong> will include Backbone initialization; usually this is populating some <em>Backbone collections</em> as sets of Backbone models with JSON data provided by the <strong>Rails view</strong></li>
+<li>The <strong>Backbone router</strong> determines which of its methods should handle the display, based on the URL</li>
+<li>The <strong>Backbone router</strong> calls that method; some inital processing may be performed, and one or more <strong>Backbone views</strong> are rendered</li>
+<li>The <strong>Backbone view</strong> reads <strong>templates</strong> and uses <strong>Backbone</strong> models to render itself onto the page</li>
+<li>-Done Interface Ready-</li>
+</ul>
+<p>User interactions</p>
+<p>User can interacting with elements on the page at these levels: <strong>Backbone model</strong>, <strong>Bakcbon view</strong>, <strong>Backbone routers</strong>, requests to remote server.</p>
+<ul>
+<li>Normal requests that don't hit Backbone and trigger a full page load/reload</li>
+<li>Normal Ajax requests, not using Backbone at all.</li>
+<li>Ajax requests from the <strong>Backbone model</strong> or <strong>Backbone collections</strong>, communicating with Rails via JSON</li>
+</ul>
+<h2 id="references-resources">References &amp; Resources</h2>
+<p><a href="https://peepcode.com/products/backbone-js">Backbone peepcode</a></p>
+<p>Backbone fundamentals - @addyosmani<br /><a href="http://addyosmani.com/blog/backbone-fundamentals">1</a><br /><a href="http://addyosmani.github.com/backbone-fundamentals/">2</a><br /><a href="http://addyosmani.github.com/backbone-fundamentals/#backboneboilerplate">3</a><br /><a href="https://github.com/addyosmani/todomvc/tree/gh-pages/architecture-examples/backbone/js">4</a><br /><a href="https://github.com/tbranyen/backbone-boilerplate">Backbone-boilerplate</a><br /><a href="http://backboneboilerplate.com">backbone-boilerplate doc</a><br /><a href="https://github.com/tbranyen/backbone-boilerplate/wiki/Installation">backbone-boilerplate installation</a><br /><a href="https://github.com/backbone-boilerplate/grunt-bbb">grunt-bbb</a></p>
+<p>Javascript - namespacing<br /><a href="http://elegantcode.com/2011/01/26/basic-javascript-part-8-namespaces">1</a><br /><a href="http://addyosmani.com/blog/essential-js-namespacing">2</a></p>
+<p>Backbone tutorials<br /><a href="http://ricostacruz.com/backbone-patterns/#partials">Backbone patterns - partials</a><br /><a href="http://coenraets.org/blog/2012/01/backbone-js-lessons-learned-and-improved-sample-app">Backbone lessons learned</a><br /><a href="https://github.com/joezimjs/Wine-Cellar">Backbone tutorial - Wine-Cellar</a><br /><a href="http://www.joezimjs.com/javascript/backbone-js-application-walkthrough-part-2-views-and-templates-video-tutorial">Backbone Introduction</a><br /><a href="http://www.joezimjs.com/javascript/backbone-js-application-walkthrough-part-3-new-view-and-external-templating-video-tutorial">Backbone app walkthrough part III</a><br /><a href="http://stackoverflow.com/questions/9816274/ways-to-save-backbone-js-model-data">Backbone data persistence</a><br /><a href="http://stackoverflow.com/questions/6831362/backbone-js-view-cant-unbind-events-properly">Backbone event binding issue</a><br /><a href="http://jsfiddle.net/GX8WJ/3">JSfiddle</a></p>
