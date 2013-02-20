@@ -5,8 +5,8 @@ gem 'pg'
 gem 'unicorn'
 
 # data services
-gem 'databasedotcom', :git => 'git://github.com/thethetheguy/databasedotcom.git'
-gem 'databasedotcom-rails', :git => 'git://github.com/thethetheguy/databasedotcom-rails.git'
+gem 'databasedotcom', :git => 'git://github.com/penguinlover/databasedotcom.git'
+gem 'databasedotcom-rails', :git => 'git://github.com/penguinlover/databasedotcom-rails.git'
 
 # authentication/authroization
 gem 'omniauth-google-apps', '~> 0.0.2'
