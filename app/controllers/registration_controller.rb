@@ -6,16 +6,16 @@ class RegistrationController < ApplicationController
       render :file => "public/404.html", :status => :not_found
     end
   end
-  
-  def create_password                         
+
+  def create_password
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       session[:user_id] = @user.id
       @user.delete_token
       redirect_to root_path, notice: 'Password successfully created.'
     else
-      render :new_password        
+      render :new_password
     end
-  end  
-  
+  end
+
 end

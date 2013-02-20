@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
-  end     
-  
+  end
+
   def create
     user = User.authenticate(params[:email], params[:password])
     if user
@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
     else
       redirect_to root_url, :alert => 'Invalid email or password'
     end
-  end 
-  
+  end
+
   def destroy
     session[:user_id] = nil
     session[:google_user_id] = nil
