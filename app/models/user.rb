@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_one :usertoken
 
   attr_accessor :password
-  attr_accessible :firstname, :lastname, :company, :phone, :email, :password, :password_confirmation  
+  attr_accessible :firstname, :lastname, :company, :phone, :email, :password, :password_confirmation
 
   validates :password, :on => :update, :presence => true, :confirmation => true
 
@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
       end
     else
       user = User.create!(
-        :email      => attrs[:email], 
-        :firstname => attrs[:firstname], 
+        :email     => attrs[:email],
+        :firstname => attrs[:firstname],
         :lastname  => attrs[:lastname]
       )
       user.create_google_app_auth! :provider => 'google app', :uid => attrs[:uid]

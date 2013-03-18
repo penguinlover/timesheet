@@ -1,4 +1,5 @@
 class GoogleAppAuthsController < ApplicationController
+  skip_before_filter :authenticate
   def create
     res = request.env['omniauth.auth']
     if res[:uid]
@@ -8,9 +9,9 @@ class GoogleAppAuthsController < ApplicationController
       last_name  = res[:info][:last_name]
 
       google_app_user = User.add_google_app_auth(
-        :email => email, 
-        :firstname => first_name, 
-        :lastname => last_name, 
+        :email => email,
+        :firstname => first_name,
+        :lastname => last_name,
         :uid => uid
       )
 

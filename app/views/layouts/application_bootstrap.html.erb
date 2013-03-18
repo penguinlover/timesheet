@@ -55,34 +55,8 @@
       </div><!--/content-->
 
       <footer style="text-align:right;margin-top:60px;">
-        <p>&copy; ComityDesigns Inc. 2012</p>
+        <p>&copy; ComityDesigns Inc. 2013</p>
       </footer>
     </div> <!-- /container -->
-
-    <script>
-      (function() { 
-      var fLastCount = -1;
-      window.setInterval(function()
-      {
-        try
-        {
-         var res = document.title.match(/^\((\d+)\)/);
-         if(res) {
-            var nNewCount = res[1];
-            if(nNewCount != fLastCount) {
-              var ico = nNewCount > 5 ? 'error' : 'num_'+nNewCount;
-              window.external.msSiteModeSetIconOverlay('http://ie.microsoft.com/testdrive/Browser/tweetfeed/Images/'+ico+'.ico', nNewCount+' unread tweets');
-              fLastCount = nNewCount;
-            }
-          }
-          else if(fLastCount != 0) {
-            window.external.msSiteModeClearIconOverlay();
-            fLastCount = 0;
-          }
-        } catch(e) { }
-      }, 1000);
-      })();
-    </script>
-
   </body>
 </html>

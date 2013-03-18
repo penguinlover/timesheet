@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.12'
 gem 'pg'
 gem 'unicorn'
 
 # data services
-gem 'databasedotcom', :git => 'git://github.com/penguinlover/databasedotcom.git'
-gem 'databasedotcom-rails', :git => 'git://github.com/penguinlover/databasedotcom-rails.git'
+#gem 'databasedotcom', :git => 'git://github.com/penguinlover/databasedotcom.git'
+#gem 'databasedotcom-rails', :git => 'git://github.com/penguinlover/databasedotcom-rails.git'
 
 # authentication/authroization
 gem 'omniauth-google-apps', '~> 0.0.2'
@@ -35,7 +35,7 @@ end
 group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'database_cleaner'  
+  gem 'database_cleaner'
 end
 
 group :production do

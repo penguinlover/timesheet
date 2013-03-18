@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  include Databasedotcom::Rails::Controller
   protect_from_forgery
 
   layout "application_bootstrap"
@@ -18,14 +17,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # enable mini-profiler only in production 
+  # enable mini-profiler only in production
   def miniprofiler
     if Rails.env.production?
       Rack::MiniProfiler.authorize_request
     end
   end
 
-  # controlelr helper methods for debugging!  
+  # controlelr helper methods for debugging!
   def pp_yaml text
     "<pre>#{text}</pre>".html_safe
   end
