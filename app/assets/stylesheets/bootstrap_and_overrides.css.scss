@@ -1,11 +1,57 @@
 @import "bootstrap";
-
-body { 
+body {
 	padding-top: 60px;
 	font-family: "Lucida Sans", "Lucida Grande", Verdana, Arial, sans-serif;
 }
-
-a.brand { 
-	font-family: 'Marck Script', cursive;
+#main_header {
+  height: 40px;
 }
+a.brand { font-family: 'Marck Script', cursive; }
+.app_layout {
+  position: absolute;
+  min-width: 1024px;
+  border: 2px dashed rgba(152,0,0,0.7);
+  top: 39px;
+  bottom: 51px;
+  left: 0;
+  right: 0;
+
+}
+#main_nav {
+  position: absolute;
+  top: 0;
+  width: 180px;
+  bottom: 0;
+  background: white;
+  -webkit-box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow:    1px 0px 3px rgba(0, 0, 0, 0.43);
+  box-shadow:         1px 0px 3px rgba(0, 0, 0, 0.43);
+}
+#main_contents {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 181px;
+  right: 0;
+  background-color: whitesmoke;
+}
+#main_footer {
+  text-align: center;
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+}
+ul.nav_item {
+  list-style: none;
+  margin: 0;
+  margin-top: 20px;
+  li {
+    margin-left: 15px;
+    line-height: 35px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
 

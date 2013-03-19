@@ -1,0 +1,16 @@
+<div class="app_layout">
+  <nav id="main_nav">
+
+  </nav>
+  <div id="main_contents">
+
+  </div>
+</div>
+
+<%= content_for :javascript do -%>
+  <script>
+    $(function(){
+       TimeSheet.initialize();
+    });
+  </script>
+<% end %>
