@@ -1,0 +1,14 @@
+<span class="title"><%= data.title %></span>
+<% if(data.sortables) { %>
+<div class="sort_control">
+  <button class="btn btn-mini sort_btn">
+    Sort By
+    <span class="caret"></span>
+  </button>
+  <ul class="sort_selection">
+    <% data.sortables.forEach(function(field){ %>
+    <li><span><%= field %></span></li>
+    <% }); %>
+  </ul>
+</div>
+<% } %>

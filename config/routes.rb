@@ -1,5 +1,10 @@
 Timesheet::Application.routes.draw do
   root :to => 'home#index'
+  namespace :api, defaults: { format: 'json' } do
+    resources :projects
+    resources :timecards
+    resources :users
+  end
 
   # backbone fallback routes
   get 'dashboard'     => 'home#dashboard'

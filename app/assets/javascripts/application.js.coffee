@@ -18,6 +18,8 @@
 #= require backbone-support
 #
 #= require timesheet
+#= require_tree ./vendor
+#= require_tree ./region_manager
 #= require_tree ./templates
 #= require_tree ./models
 #= require_tree ./views

@@ -15,24 +15,22 @@
   </head>
 
   <body>
-
     <header id="main_header" class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-          </a>
+        <div class="container-fluid">
           <a class="brand" href="#" style="font-size:28px;">Timesheet</a>
-          <div class="container nav-collapse">
             <ul class="nav" style="float:right;">
-              <li><%= link_to "Help", "/help"  %></li>
+              <li id="user_bio">
+                <span><%= gravatar_for current_user %></span>
+                <span><%= current_user.email %></span>
+              </li>
               <% if current_user %>
               <li><%= link_to "Log out", log_out_path %></li>
               <% else %>
               <li><%= link_to "Log in", root_path %></li>
               <% end %>
+              <li><%= link_to "Help", "#"  %></li>
             </ul>
-          </div><!--/.nav-collapse -->
         </div>
       </div>
     </header>

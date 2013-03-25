@@ -3,7 +3,10 @@ window.TimeSheet =
   Collections:  {}
   Views:        {}
   Routers:      {}
+  RegionManagers: {}
+
   initialize: () ->
     new TimeSheet.Routers.AppRouter()
     Backbone.history.start
       root: '/dashboard'
+

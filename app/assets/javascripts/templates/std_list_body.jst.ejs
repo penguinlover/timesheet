@@ -1,0 +1,18 @@
+<ul>
+  <% data.forEach(function(row){ %>
+  <li class="std_list_row">
+    <div class="status <%= row.status %>">&nbsp;</div>
+    <div class="title"><span><%= row.title %></span></div>
+    <div class="players">
+      <% row.players.forEach(function(player){ %>
+      <span class="head_icon"><img src="<%= player.url %>" width="27" height="27" alt="Face" /></span>
+      <% }); %>
+    </div>
+  </li>
+  <% }); %>
+  <li class="std_list_row list_controls">
+    <button class="btn btn-link" id="new_project_link">
+      <i class="icon-plus"></i>&nbsp;Add Project
+    </button>
+  </li>
+</ul>

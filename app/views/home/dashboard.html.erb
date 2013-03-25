@@ -1,9 +1,101 @@
 <div class="app_layout">
-  <nav id="main_nav">
-
-  </nav>
+  <nav id="main_nav"></nav>
   <div id="main_contents">
-
+    <div class="std_list">
+      <div class="list_header">
+        <span class="title">All Projects</span>
+        <div class="sort_control">
+          <button class="btn btn-mini sort_btn">
+            Sort By
+            <span class="caret"></span>
+          </button>
+          <ul class="sort_selection">
+              <li><span>Created Date</span></li>
+              <li><span>Most Team Members</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="list_body">
+        <ul>
+          <li class="std_list_row proj_list_row">
+            <div class="status active">&nbsp;</div>
+            <div class="title"><span>Mars Rover 2013</span></div>
+            <div class="players">
+              <span class="head_icon"><%= image_tag "face1.png", size: '27x27' %></span>
+              <span class="head_icon"><%= image_tag "face2.png", size: '27x27' %></span>
+              <span class="head_icon"><%= image_tag "face3.png", size: '27x27' %></span>
+            </div>
+          </li>
+          <li class="std_list_row proj_list_row">
+            <div class="status finished">&nbsp;</div>
+            <div class="title"><span>Mars Rover 2013</span></div>
+            <div class="players">
+              <span class="head_icon"><%= image_tag "face1.png", size: '27x27' %></span>
+              <span class="head_icon"><%= image_tag "face2.png", size: '27x27' %></span>
+              <span class="head_icon"><%= image_tag "face3.png", size: '27x27' %></span>
+            </div>
+          </li>
+          <li class="std_list_row proj_list_row">
+            <div class="status suspended">&nbsp;</div>
+            <div class="title"><span>Mars Rover 2013</span></div>
+            <div class="players">
+              <span class="head_icon"><%= image_tag "face1.png", size: '27x27' %></span>
+              <span class="head_icon"><%= image_tag "face2.png", size: '27x27' %></span>
+              <span class="head_icon"><%= image_tag "face3.png", size: '27x27' %></span>
+            </div>
+          </li>
+          <li class="std_list_row list_controls">
+            <button class="btn btn-link" id="new_project_link">
+              <i class="icon-plus"></i>&nbsp;Add Project
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="list_footer">
+        <div class="caption proj_caption">
+          <ul>
+            <li><span class="active">&nbsp;</span><span>active</span></li>
+            <li><span class="finished">&nbsp;</span><span>finished</span></li>
+            <li><span class="suspended">&nbsp;</span><span>suspended</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="aux_contents">
+    <div class="project_form">
+      <form>
+        <fieldset>
+          <legend>New Project</legend>
+          <div class="input_control">
+            <label for="proj_name">Name</label>
+            <input id="proj_name" name="proj_name" type="text" placeholder="Project Name">
+          </div>
+          <div class="input_control">
+            <div class="col col_left">
+              <label for="proj_start" class="inline">Start Date</label>
+              <input id="proj_start" type="text" value="03/23/13" data-date-format="mm/dd/yy" class="datepicker input-small"/>
+            </div>
+            <div class="col col_right">
+              <label for="proj_end" class="inline">End Date</label>
+              <input id="proj_end" type="text" value="03/23/13" data-date-format="mm/dd/yy" class="datepicker input-small"/>
+            </div>
+          </div>
+          <div class="input_control">
+            <label for="proj_desc">Description</label>
+            <textarea id="proj_desc" name="proj_desc" rows="3"></textarea>
+          </div>
+          <div class="input_control">
+            <label class="checkbox">
+              <input type="checkbox"/>Active
+            </label>
+          </div>
+          <button type="submit" class="btn">Create</button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="aux_form">
+    </div>
   </div>
 </div>
 
@@ -11,6 +103,7 @@
   <script>
     $(function(){
        TimeSheet.initialize();
+       $('.datepicker').datepicker();
     });
   </script>
 <% end %>
