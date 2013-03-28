@@ -12,6 +12,7 @@
 #
 #= require jquery
 #= require jquery_ujs
+#= require bootstrap-typeahead
 #
 #= require underscore
 #= require backbone

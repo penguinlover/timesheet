@@ -3,6 +3,10 @@
   <li class="std_list_row">
     <div class="status <%= row.status %>">&nbsp;</div>
     <div class="title"><span><%= row.title %></span></div>
+    <div class="ln_related ln_timecards">
+      <i class="icon-calendar icon-white"></i>
+      <a href="#projects/2/timecards">timecards</a>
+    </div>
     <div class="players">
       <% row.players.forEach(function(player){ %>
       <span class="head_icon"><img src="<%= player.url %>" width="27" height="27" alt="Face" /></span>

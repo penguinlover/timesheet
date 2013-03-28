@@ -1,6 +1,87 @@
 <div class="app_layout">
   <nav id="main_nav"></nav>
-  <div id="main_contents">
+  <div id="main_contents" style="right:650px;">
+    <div class="std_list">
+      <div class="child_list">
+        <div class="list_header">
+          <span class="title">Jupiter Rover 2013 - Timecards (2)</span>
+          <div class="sort_control">
+            <button class="btn btn-mini sort_btn">
+              Sort By
+              <span class="caret"></span>
+            </button>
+            <ul class="sort_selection">
+                <li><span>Most Recent</span></li>
+                <li><span>Status</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="list_body">
+          <ul>
+            <li class="std_list_row tc_list_row">
+              <div class="status approved">&nbsp;</div>
+              <div class="title"><span>01/14/13 - 01/20/13</span></div>
+              <div class="players">
+                <span class="head_icon"><%= image_tag "face1.png", size: '27x27' %></span>
+              </div>
+            </li>
+            <li class="std_list_row tc_list_row">
+              <div class="status submitted">&nbsp;</div>
+              <div class="title"><span>01/08/13 - 01/14/13</span></div>
+              <div class="players">
+                <span class="head_icon"><%= image_tag "face1.png", size: '27x27' %></span>
+              </div>
+            </li>
+            <li class="std_list_row list_controls">
+              <button class="btn btn-link" id="new_timecard_link">
+                <i class="icon-plus"></i>&nbsp;New Timecard
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="child_list">
+        <div class="list_header">
+          <span class="title">Mars Rover 2013 - Timecards (1)</span>
+          <div class="sort_control">
+            <button class="btn btn-mini sort_btn">
+              Sort By
+              <span class="caret"></span>
+            </button>
+            <ul class="sort_selection">
+                <li><span>Most Recent</span></li>
+                <li><span>Status</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="list_body">
+          <ul>
+            <li class="std_list_row tc_list_row">
+              <div class="status saved">&nbsp;</div>
+              <div class="title"><span>01/14/13 - 01/20/13</span></div>
+              <div class="players">
+                <span class="head_icon"><%= image_tag "face1.png", size: '27x27' %></span>
+              </div>
+            </li>
+            <li class="std_list_row list_controls">
+              <button class="btn btn-link" id="new_timecard_link">
+                <i class="icon-plus"></i>&nbsp;New Timecard
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="list_footer">
+        <div class="caption proj_caption">
+          <ul>
+            <li><span class="approved">&nbsp;</span><span>approved</span></li>
+            <li><span class="submitted">&nbsp;</span><span>submitted</span></li>
+            <li><span class="saved">&nbsp;</span><span>saved</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- project lists
     <div class="std_list">
       <div class="list_header">
         <span class="title">All Projects</span>
@@ -20,6 +101,10 @@
           <li class="std_list_row proj_list_row">
             <div class="status active">&nbsp;</div>
             <div class="title"><span>Mars Rover 2013</span></div>
+            <div class="ln_related ln_timecard">
+              <i class="icon-calendar icon-white"></i>
+              <a href="#projects/1/timecards">timecards</a>
+            </div>
             <div class="players">
               <span class="head_icon"><%= image_tag "face1.png", size: '27x27' %></span>
               <span class="head_icon"><%= image_tag "face2.png", size: '27x27' %></span>
@@ -29,6 +114,10 @@
           <li class="std_list_row proj_list_row">
             <div class="status finished">&nbsp;</div>
             <div class="title"><span>Mars Rover 2013</span></div>
+            <div class="ln_related ln_timecard">
+              <i class="icon-calendar icon-white"></i>
+              <a href="#projects/2/timecards">timecards</a>
+            </div>
             <div class="players">
               <span class="head_icon"><%= image_tag "face1.png", size: '27x27' %></span>
               <span class="head_icon"><%= image_tag "face2.png", size: '27x27' %></span>
@@ -38,6 +127,10 @@
           <li class="std_list_row proj_list_row">
             <div class="status suspended">&nbsp;</div>
             <div class="title"><span>Mars Rover 2013</span></div>
+            <div class="ln_related ln_timecard">
+              <i class="icon-calendar icon-white"></i>
+              <a href="#projects/3/timecards">timecards</a>
+            </div>
             <div class="players">
               <span class="head_icon"><%= image_tag "face1.png", size: '27x27' %></span>
               <span class="head_icon"><%= image_tag "face2.png", size: '27x27' %></span>
@@ -61,49 +154,154 @@
         </div>
       </div>
     </div>
+    -->
   </div>
-  <div id="aux_contents">
+  <div id="aux_contents" style="width:651px;">
+    <div id="tc_datepicker" class="clearfix">
+      <div class="tc_dates">
+        <div id="week_start" class="focused">
+          <span class="mark">Week Start</span>
+          <input class="input-medium date"/>
+        </div>
+        <div id="week_end">
+          <span class="mark">Week End</span>
+          <input class="input-medium date"/>
+        </div>
+      </div>
+    </div>
+    <div id="hours_log">
+
+    </div>
+    <!-- project_form
     <div class="project_form">
-      <form>
-        <fieldset>
-          <legend>New Project</legend>
-          <div class="input_control">
-            <label for="proj_name">Name</label>
-            <input id="proj_name" name="proj_name" type="text" placeholder="Project Name">
-          </div>
-          <div class="input_control">
-            <div class="col col_left">
-              <label for="proj_start" class="inline">Start Date</label>
-              <input id="proj_start" type="text" value="03/23/13" data-date-format="mm/dd/yy" class="datepicker input-small"/>
+      <div class="new_project_form">
+        <form>
+          <fieldset>
+            <legend>New Project</legend>
+            <div class="input_control">
+              <label for="proj_name">Name</label>
+              <input id="proj_name" name="proj_name" type="text" placeholder="Project Name">
             </div>
-            <div class="col col_right">
-              <label for="proj_end" class="inline">End Date</label>
-              <input id="proj_end" type="text" value="03/23/13" data-date-format="mm/dd/yy" class="datepicker input-small"/>
+            <div class="input_control">
+              <div class="col col_left">
+                <label for="proj_start" class="inline">Start Date</label>
+                <input id="proj_start" type="text" value="03/23/13" data-date-format="mm/dd/yy" class="datepicker input-small"/>
+              </div>
+              <div class="col col_right">
+                <label for="proj_end" class="inline">End Date</label>
+                <input id="proj_end" type="text" value="03/23/13" data-date-format="mm/dd/yy" class="datepicker input-small"/>
+              </div>
             </div>
-          </div>
-          <div class="input_control">
-            <label for="proj_desc">Description</label>
-            <textarea id="proj_desc" name="proj_desc" rows="3"></textarea>
-          </div>
-          <div class="input_control">
-            <label class="checkbox">
-              <input type="checkbox"/>Active
-            </label>
-          </div>
-          <button type="submit" class="btn">Create</button>
-        </fieldset>
-      </form>
+            <div class="input_control">
+              <label for="proj_desc">Description</label>
+              <textarea id="proj_desc" name="proj_desc" rows="3"></textarea>
+            </div>
+            <div class="input_control">
+              <label class="checkbox">
+                <input type="checkbox"/>Active
+              </label>
+            </div>
+            <button type="submit" class="btn">Create</button>
+          </fieldset>
+        </form>
+      </div>
+      <div class="new_project_member_form">
+        <div class="input-append user_search">
+          <input class="input-large" placeholder="Email/Name" id="user_search" type="text"/>
+          <button class="btn" type="button">Add Member</button>
+        </div>
+        <div class="project_members">
+          <ul>
+            <li>
+              <span class="head_icon"><%= image_tag "face1.png", size: '27x27' %></span>
+              <span class="user_name"><a href="#users/1">John Watson</a></span>
+              <span class="role">
+                <select>
+                  <option>Project Manager</option>
+                  <option>Developer</option>
+                  <option>QA</option>
+                </select>
+              </span>
+            </li>
+            <li>
+              <span class="head_icon"><%= image_tag "face2.png", size: '27x27' %></span>
+              <span class="user_name"><a href="#users/2">Billy Joe</a></span>
+              <span class="role">
+                <select>
+                  <option>Project Manager</option>
+                  <option>Developer</option>
+                  <option>QA</option>
+                </select>
+              </span>
+            </li>
+            <li>
+              <span class="head_icon"><%= image_tag "face3.png", size: '27x27' %></span>
+              <span class="user_name"><a href="#users/3">Freddy Mercury</a></span>
+              <span class="role">
+                <select>
+                  <option>Project Manager</option>
+                  <option>Developer</option>
+                  <option>QA</option>
+                </select>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="aux_form">
-    </div>
+    -->
   </div>
 </div>
 
 <%= content_for :javascript do -%>
   <script>
     $(function(){
-       TimeSheet.initialize();
-       $('.datepicker').datepicker();
+      TimeSheet.initialize();
+      $('.datepicker').datepicker();
+      var weekday = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+      $('#tc_datepicker').datepicker({todayHighlight: true}).on('changeDate', function(ev){
+        var $start = $('#week_start'),
+            $end   = $('#week_end');
+        if($start.hasClass('focused')){
+          var start_date = new Date(
+            ev.date.getUTCFullYear(), ev.date.getUTCMonth(), ev.date.getUTCDate());
+          $start.find('.date').val(
+            weekday[start_date.getDay()] + ' ' + start_date.toLocaleDateString());
+          $start.removeClass('focused');
+          if(_.isEmpty($end.find('.date').val()))
+            $end.addClass('focused');
+        } else if($end.hasClass('focused')){
+          var end_date = new Date(
+            ev.date.getUTCFullYear(), ev.date.getUTCMonth(), ev.date.getUTCDate());
+          $end.find('.date').val(
+            weekday[end_date.getDay()] + ' ' + end_date.toLocaleDateString());
+          $end.removeClass('focused');
+          if(_.isEmpty($start.find('.date').val()))
+            $start.addClass('focused');
+        }
+      });
+
+      var data = [
+                  { id: '001', name: 'George W. Bush' },
+                  { id: '001', name: 'Tylor N. Swift' },
+                  { id: '001', name: 'Micheal Noisy'  },
+                  { id: '001', name: 'Jennifer Pyton' },
+                  { id: '001', name: 'Qiang'          }
+                 ];
+      var names = _.map(data, function(item){ return item.name; });
+      $('#user_search').typeahead({
+        source: names,
+        updater: function(item){
+          console.log(item);
+        },
+        highlighter: function(item){
+          var i = _.indexOf(names, item);
+          if(i < 2) return '<img src="/assets/face1.png" width="21" height="21"/><span>' + item + '</span>';
+          if(i < 3) return '<img src="/assets/face2.png" width="21" height="21"/><span>' + item + '</span>';
+          if(i < 5) return '<img src="/assets/face3.png" width="21" height="21"/><span>' + item + '</span>';
+        }
+      });
     });
   </script>
 <% end %>
